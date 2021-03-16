@@ -1,5 +1,9 @@
--- SQLite
-/* How to use SQL */
+/*
+ * Create a file <name>.db
+ * CMD + Shift + P > Run Query
+ * Select the database to run the query (e.g. <name>.db)
+ * Get cake
+ */
 
 -- BRANCHES
 

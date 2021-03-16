@@ -1,4 +1,6 @@
--- OPERATIONS
+-- Arbeitsblatt: DreamHome I
+
+-- Introduction
 
 SELECT street, city
     FROM branches;
