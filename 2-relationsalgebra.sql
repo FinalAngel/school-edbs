@@ -60,7 +60,7 @@ SELECT fname, lname, clientno
 -- b) Statusreport über alle Mietobjekte und deren Besichtigungen mit
 --    propertyno, street, city, clientno, viewdate und comment.
 SELECT propertyno, street, city, clientno, viewdate, v_comment
-    FROM propertiesforrent NATURAL JOIN viewings
+    FROM propertiesforrent NATURAL JOIN viewings;
 
 -- c) Liste mit Details aller Mitarbeiter, die in einer Filiale in Glasgow arbeiten.
 SELECT *
@@ -79,7 +79,7 @@ SELECT fname, lname, telno, rooms, rent
 --    mit propertyno PA14 besichtigt haben.
 SELECT fname, lname, maxrent
     FROM clients INNER JOIN propertiesforrent
-    WHERE propertiesforrent.propertyno = 'PA14'
+    WHERE propertiesforrent.propertyno = 'PA14';
 
 -- 5.6 Algebraische Ausdrücke
 -- a)
