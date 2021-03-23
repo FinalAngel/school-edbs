@@ -38,14 +38,14 @@ UNION
 SELECT city from branches;
 
 -- b) Liste aller Orte (city), in denen Filialen gibt aber keine Mietobjekte.
-SELECT city FROM propertiesforrent
-INTERSECT
-SELECT city from branches;
-
--- c) Liste aller Orte (city), in denen es sowohl Filialen als auch Mietobjekte gibt.
 SELECT city FROM branches
 EXCEPT
 SELECT city from propertiesforrent;
+
+-- c) Liste aller Orte (city), in denen es sowohl Filialen als auch Mietobjekte gibt.
+SELECT city FROM propertiesforrent
+INTERSECT
+SELECT city from branches;
 
 -- d) Können diese 3 Anfragen auch mit anderen Konstrukten als Mengenoperationen for- muliert werden?
 -- ja mit INNER JOIN/USING & ON
@@ -54,8 +54,13 @@ SELECT city from propertiesforrent;
 
 -- a) Liste mit fname, lname und clientno der Kunden zusammen mit propertyno 
 --    und com- ment, die ein Mietobjekt besichtigt haben.
-SELECT fname, lname, clientno
+SELECT fname, lname, clientno, propertyno, v_comment
     FROM clients NATURAL JOIN viewings;
+
+-- Lösung ohne natural join
+SELECT fname, lname, c.clientno, propertyno, v_comment
+    FROM clients c, viewings v
+    WHERE c.clientno = v.clientno;
 
 -- b) Statusreport über alle Mietobjekte und deren Besichtigungen mit
 --    propertyno, street, city, clientno, viewdate und comment.
@@ -83,7 +88,7 @@ SELECT fname, lname, maxrent
 
 -- 5.6 Algebraische Ausdrücke
 -- a)
-SELECT city
+SELECT DISTINCT city
     FROM propertiesforrent
     WHERE rooms > 4;
 
