@@ -33,9 +33,9 @@ SELECT staffno, lname, city
 -- 5.3 Mengen Operationen
 
 -- a) Liste aller Orte (city), in denen es Filialen oder Mietobjekte gibt.
-SELECT city FROM propertiesforrent
+SELECT city FROM branches
 UNION
-SELECT city from branches;
+SELECT city from propertiesforrent;
 
 -- b) Liste aller Orte (city), in denen Filialen gibt aber keine Mietobjekte.
 SELECT city FROM branches
